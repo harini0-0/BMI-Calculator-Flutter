@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/contentCard.dart';
-
-enum genderCluster { MALE, FEMALE }
+import 'constants.dart';
 
 class InputScreen extends StatefulWidget {
   //InputScreen({Key? key}) : super(key: key);
@@ -29,38 +28,31 @@ class _InputScreenState extends State<InputScreen> {
         child: Column(
           children: <Widget>[
             Row(children: [
-              Expanded(
-                child: GestureDetector(
-                    onTap: () => {
-                          setState(() {
-                            gend = genderCluster.MALE;
-                          })
-                        },
-                    child: CardContent(
-                      gender: 'MALE',
-                      iconname: Icons.male,
-                      cardColor: gend == genderCluster.MALE
-                          ? cardColor
-                          : Color(0xff14183B),
-                    )),
+              CardContent(
+                clicker: () {
+                  setState(() {
+                    gend = genderCluster.MALE;
+                  });
+                },
+                gender: 'MALE',
+                iconname: Icons.male,
+                cardColor:
+                    gend == genderCluster.MALE ? cardColor : Color(0xff14183B),
               ),
               SizedBox(
                 width: 10,
               ),
-              Expanded(
-                child: GestureDetector(
-                    onTap: () => {
-                          setState(() {
-                            gend = genderCluster.FEMALE;
-                          })
-                        },
-                    child: CardContent(
-                      gender: 'FEMALE',
-                      iconname: Icons.female,
-                      cardColor: gend == genderCluster.FEMALE
-                          ? cardColor
-                          : Color(0xff14183B),
-                    )),
+              CardContent(
+                clicker: () {
+                  setState(() {
+                    gend = genderCluster.FEMALE;
+                  });
+                },
+                gender: 'FEMALE',
+                iconname: Icons.female,
+                cardColor: gend == genderCluster.FEMALE
+                    ? cardColor
+                    : Color(0xff14183B),
               ),
             ]),
           ],
