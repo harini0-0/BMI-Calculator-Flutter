@@ -5,3 +5,7 @@ const TextStyle txt = TextStyle(
   color: Colors.grey,
 );
 enum genderCluster { MALE, FEMALE }
+
+Color cardColor = Color(0xff272A4D);
+const kslidertextstyle = TextStyle(
+    fontSize: 80.0, fontWeight: FontWeight.w800, color: Color(0xFFFEFEFE));
